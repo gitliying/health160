@@ -1,0 +1,16 @@
+@import './common';
+#root{
+    height: 100%;
+    .container{
+        height: 100%; 
+        //定位方式，使tabar在底部
+        position: relative; 
+        //弹性盒子方式 使tabar在底部
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .am-tab-bar{
+            height: auto;
+        }          
+    }
+}
