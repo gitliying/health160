@@ -50,3 +50,9 @@
 @function br($px){
     @return  ($px/37.5 * 1rem);
 }
+@function left($px){
+    @return  ($px/37.5 * 1rem);
+}
+@function top($px){
+    @return  ($px/37.5 * 1rem);
+}

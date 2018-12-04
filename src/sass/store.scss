@@ -2,5 +2,101 @@
 @import './common/common';
 
 .container .store{
+    background-color: #ffd452;
     flex:1;
+    overflow-y: auto;
+    .store_top{
+        padding-top: padding-top(20);
+        padding-left: padding-left(10);
+        position: relative;
+        input{
+            width: w(300);
+            height: h(30);
+            border-radius: br(20);
+            border: none;
+            font-size: fs(16);
+            padding-left: padding-left(30);
+            box-sizing: border-box;
+        }
+        span{
+            display: inline-block;
+            width: w(20);
+            color: #ccc;
+            font-size: fs(16);
+            position: absolute;
+            left: left(15);
+            top: top(27);
+            
+        }
+        b{
+            font-size: fs(16);
+            color: #fff;
+            margin-left: margin-left(10);
+        }
+        
+    }
+    .store_menu{
+       height: h(201); 
+       background: #fff;
+       margin-top: margin-top(10);
+    }
+    .store_list{
+        ul{
+            display: flex;
+            justify-content: space-between;
+            flex-wrap:wrap;
+            padding-left: padding-left(10);
+            padding-right: padding-right(10);
+            margin: 0;
+            li{
+                list-style: none;
+                width: w(175);
+                height: h(250);
+                background: #fff;
+                padding-top: padding-top(15);
+                text-align: center;
+                margin-top: margin-top(20);
+                box-sizing: border-box;
+                img{
+                    width: w(140);
+                    height: h(114);
+                    margin-bottom: margin-bottom(10);
+                }
+                h4{
+                    color: #333;
+                    font-size: fs(16);
+                    height: h(46);
+                    //太多文字，变成省略号...
+                    text-overflow: ellipsis;
+                    white-space: nowrap; 
+                    overflow: hidden;
+                    margin: 0;
+                }
+                span{
+                    display: block;
+                    color: #666;
+                    font-size: fs(14);
+                    text-overflow: ellipsis;
+                    white-space: nowrap; 
+                    overflow: hidden;
+                }
+                p{
+                    display: flex;
+                    justify-content: space-between;
+                    padding-left: padding-left(10);
+                    padding-right: padding-right(10);
+                    box-sizing: border-box;
+                    b:nth-child(1){
+                       color: #f27b17;
+                    }
+                    b:nth-child(2){
+                       color:  #9b9b9b;
+                       font-size: fs(12);
+                       text-decoration: line-through;
+                    }
+                    
+                }
+            }
+        }
+    }
 }

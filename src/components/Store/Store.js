@@ -1,19 +1,50 @@
 import React,{Component} from 'react';
 
-import {Route} from 'react-router-dom';
+import {Route,Switch,withRouter} from 'react-router-dom';
+
+
+//引入storeMain组件
+import {StoreMain} from './StoreMain';
+import {Examination} from './Examination';
+import {Details} from './Details';
 
 //引入样式
 import '../../sass/store.scss';
 
-import {City} from '../Common/City';
+//引入宫格
+import { Grid } from 'antd-mobile';
+
+//fontAwesome
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+	faSearch
+    } from '@fortawesome/free-solid-svg-icons';
+
+library.add(
+	faSearch
+);
+
 
 
 class Store extends Component{
-    render(){
+	constructor(){
+		super();
+	}
+	
+	render(){
+		let {match} = this.props;
     	return <div className="store">
-    		<Route component={City} />
+	    	 <Switch>
+			       <Route path={'/store'} component={StoreMain} exact/>
+			       <Route path={match.url + "/examination"} component={Examination} exact/>
+			       <Route path={match.url + "/details/:id"} component={Details} exact/>
+				</Switch>
     	</div>
     }
 }
+
+//编程式导航
+Store = withRouter(Store);
 
 export {Store};

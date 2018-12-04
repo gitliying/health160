@@ -1,0 +1,91 @@
+//引入公共样式
+@import './common/common';
+
+.container{
+   .details{
+       width: w(375);
+       height: 100%;
+       background: #f1f1f1;
+       .detailsTop{
+          height: h(300); 
+          img{
+              width: w(375);
+              height: h(300);  
+          }
+       }
+       .detailsContent{
+           background: #fff;
+           padding: padding(10,20,20,20);
+           h4{
+                color: #333;
+                font-size: fs(18);
+                height: h(46);
+            }
+            span{
+                    display: block;
+                    color: #666;
+                    font-size: fs(14);
+                }
+            p{
+                b:nth-child(1){
+                   color: #f27b17;
+                   font-size: fs(18);
+                }
+                b:nth-child(2){
+                    margin-left: margin-left(20);
+                   color:  #9b9b9b;
+                   font-size: fs(12);
+                   text-decoration: line-through;
+                }
+                
+            }
+            div{
+                b:nth-child(1){
+                   color: #f27b17;
+                }
+                b:nth-child(2){
+                    margin-left: margin-left(20);
+                   color:  #9b9b9b;
+                   font-size: fs(12);
+                }
+            }
+       }
+       .detailsStory{
+           background: #fff;
+           padding-left: padding-left(20);
+           box-sizing: border-box;
+           p{
+                height: h(40);
+                border-bottom: 1px dashed #ccc;
+                color: #666;
+                line-height: lh(40);
+                font-size: fs(16);
+           }
+       }
+       .detailsOver{
+           background: #f1f1f1;
+           margin-top:margin-top(-16);
+           .detailsOverTop{
+               height: h(50);
+               line-height: lh(50);padding-left:
+               padding-left(20);
+               background: #fff;
+               border-bottom: 1px dashed #ccc;
+               font-size: fs(16);
+           }
+           .detailsOverContent{
+              width: w(375); 
+              img{
+                  width: w(375);
+              }
+           }
+       }
+   }
+
+}
+
+
+
+
+
+
