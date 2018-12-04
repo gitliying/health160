@@ -1,16 +1,54 @@
-@import './common';
-#root{
-    height: 100%;
-    .container{
-        height: 100%; 
-        //定位方式，使tabar在底部
-        position: relative; 
-        //弹性盒子方式 使tabar在底部
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        .am-tab-bar{
-            height: auto;
-        }          
+//引入公共样式
+@import './common/common';
+
+.container .home{
+    flex:1;
+    overflow-y:auto;
+    .activity{
+       .activityTop{
+           background: #fff;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #ccc;
+            height: h(40);
+            line-height: lh(40);
+            b{
+                width: w(2);
+                margin-top: margin-top(10);
+                height: h(15);
+                display: inline-block;
+                background: #00d3c2;
+                margin-left: margin-left(20);
+            }
+            span{
+                margin-right: margin-right(30);
+            }
+       } 
+       .activityContent{
+           width: 100%;
+            height: h(150);
+            display: flex;
+            overflow-x: auto;
+            overflow-y: none;
+            &::-webkit-scrollbar{
+                display: none;
+            }
+           .activityItem{
+              float: left; 
+              font-size: fs(12);
+              margin-right: margin-right(20);
+              p{
+                  text-align: center;
+              }
+           }
+           
+       }
     }
 }
+.container .am-tab-bar{
+    height:h(46);
+    
+}
+
+
+

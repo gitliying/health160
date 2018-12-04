@@ -1,21 +1,10 @@
 import React,{Component} from 'react';
-import {Route,NavLink,Switch,Redirect,withRouter} from 'react-router-dom';
+
 
 //antd-mobile
 import { TabBar } from 'antd-mobile';
 //antd-mobile样式 
 import 'antd-mobile/dist/antd-mobile.css';
-
-//引入组件
-import {Home} from './components/Home/Home';
-import {Doctor} from './components/Doctor/Doctor';
-import {Store} from './components/Store/Store';
-import {Message} from './components/Message/Message';
-import {My} from './components/My/My';
-import {Notfound} from './components/Page/Page';
-
-//引入公共样式
-import './sass/common/common.scss';
 
 //fontAwesome
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -46,7 +35,7 @@ library.add(
 
 
 
-class App extends Component{
+class Common extends Component{
 	constructor(){
 		super();
 		this.state = {
@@ -110,16 +99,6 @@ class App extends Component{
 	render(){
 		return(
 		<div className="container">
-				<Switch>
-					<Route path="/home" component={Home}/>
-					<Route path="/doctor" component={Doctor}/>
-					<Route path="/store" component={Store}/>
-					<Route path="/message" component={Message}/>
-					<Route path="/my" component={My}/>
-					<Route path="/404" component={Notfound}/>
-					<Redirect from="/" to="/home" exact/>
-					<Redirect to="/404" />
-				</Switch>
 			<TabBar noRenderContent={true}>
 				{
 					this.state.tabs.map((tab,idx)=>{
@@ -134,13 +113,12 @@ class App extends Component{
 			          </TabBar.Item>
 					})
 				}
+				 
 		    </TabBar>
 	    </div>
 	    )  
 	}
 }
 
-//编程式导航
-App = withRouter(App);
 
-export default App;
+export {Common};

@@ -12,6 +12,7 @@ const protocol = process.env.HTTPS === 'true' ? 'https' : 'http';
 const host = process.env.HOST || '0.0.0.0';
 
 //代理服务器
+
 let myproxy = {
 	"/api":{
   		"target":"https://weixin.91160.com",
@@ -22,6 +23,12 @@ let myproxy = {
   		"target":"http://m.soyoung.com",
   		"changeOrigin":true,
   		"pathRewrite":{"^/city":"/"}
+	},
+	//挂号接口
+	"/registration":{
+  		"target":"https://wap.91160.com",
+  		"changeOrigin":true,
+  		"pathRewrite":{"^/registration":"/"}
 	}
 }
 

@@ -1,0 +1,94 @@
+//引入公共样式
+@import './common/common';
+
+.container{
+   .login{
+       flex: 1;
+       background: #fff;
+      .login_top{
+            height: H(138);
+            background-color: #F1F1F1;
+            width: w(375);
+            padding: padding(20,20,10,20);
+            box-sizing: border-box;
+            p{
+                height: h(30);
+                a{
+                    display: inline-block;
+                    width: w(30);
+                    height: h(30);
+                    border-radius: 50%;
+                    background: rgba(0, 0, 0, 0.5);
+                    text-align: center;
+                    line-height: lh(30);
+                    font-size: fs(20);
+                    color: #fff;
+                }
+            }
+            .logo{
+              text-align: center;  
+            }
+            img{
+                width: w(152);
+                height: h(47);
+            } 
+           
+      }
+      .login_form{
+          height: h(175);
+          background: #fff;
+        .login_form_email{
+            height: h(59);
+            padding: padding(20,30,20,50);
+            box-sizing: border-box;
+            border-bottom: 1px solid #ccc;
+            span{
+                font-size: fs(20);
+                color: #00D3C2;
+                margin-right: margin-right(10);
+            }
+            input{
+                display: inline-block;
+                border: none;
+                height: h(20);
+                font-size: fs(16);
+                width: w(260);
+            }
+        } 
+        .login_form_login{
+            padding-left: padding-left(20);
+            padding-right: padding-right(20);
+            margin-top: margin-top(50);
+            box-sizing: border-box;
+            div{
+                height: h(37);
+                background: #00D3C2;
+                color: #fff;
+                line-height: lh(37);
+                text-align: center;
+                border-radius: br(30);
+            }
+        } 
+        .login_form_reg{
+            margin-top: margin-top(50);
+            margin-left: margin-left(20);
+            margin-right: margin-right(20);
+            display: flex;
+            justify-content: space-between;
+            span{
+                color:#00D3C2;
+            }
+        }
+      }
+   }
+}
+
+
+//还没用到redux,先这样
+.container .am-tab-bar{
+//  display: none;
+}
+
+
+
+

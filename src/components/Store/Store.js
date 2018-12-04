@@ -1,7 +1,19 @@
-import React from 'react';
+import React,{Component} from 'react';
 
-function Store(){
-    return <div>商城</div>
+import {Route} from 'react-router-dom';
+
+//引入样式
+import '../../sass/store.scss';
+
+import {City} from '../Common/City';
+
+
+class Store extends Component{
+    render(){
+    	return <div className="store">
+    		<Route component={City} />
+    	</div>
+    }
 }
 
 export {Store};

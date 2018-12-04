@@ -1,0 +1,13 @@
+//引入mixin
+@import './_mixin';
+
+html,body{height:100%}
+
+#root,.container{@extend body;}
+.container{
+    height: 100%;
+    display:flex;
+    flex-direction: column;
+    }
+
+

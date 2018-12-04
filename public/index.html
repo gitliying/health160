@@ -38,3 +38,13 @@
     -->
   </body>
 </html>
+<script>
+	  //获取屏幕宽度
+  
+	document.documentElement.style.fontSize = document.documentElement.clientWidth/10 +'px';
+
+  window.onresize=function(){
+    document.documentElement.style.fontSize = document.documentElement.clientWidth/10 +'px';
+    // console.log(document.documentElement.style.fontSize);
+  }
+</script>

@@ -5,6 +5,9 @@ import {Route,Switch} from 'react-router-dom';
 //引入组件 
 import {Reg} from './Reg';
 import {Login} from './Login';
+import {Info} from './Info';
+
+
 
 class My extends Component{
 	constructor(){
@@ -13,10 +16,12 @@ class My extends Component{
 	}
 	render(){
 		let {match} = this.props;
+		console.log("my path:",this.props)
 		return<div>
 			<Switch>
-				<Route path={match.url + "/reg"} component={Reg}/>
-				<Route path={match.url + "/login"} component={Login}/>
+				<Route exact path={match.url + "/reg"} component={Reg}/>
+				<Route exact path={match.url } component={Login}/>
+				<Route exact path={match.url + "/info"} component={Info}/>
 			</Switch>
 		</div>
 	}
