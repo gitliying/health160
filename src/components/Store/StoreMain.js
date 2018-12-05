@@ -84,27 +84,30 @@ class StoreMain extends Component{
 					path:'/healthy'
 				}
 			],
-			//list
+			//列表页的目标页数，实现懒加载
+			targetPage:1,
+			//存储列表页历史加载过的数据，懒加载之后追加
 			list:[],
 		
 		}
 		this.handlerGotoTarget = this.handlerGotoTarget.bind(this);
-		this.watchScroll = this.watchScroll.bind(this);
+		this.handlerScroll = this.handlerScroll.bind(this);
+		this.handlerSure = this.handlerSure.bind(this);
 	}
 	
 	//请求store列表页数据
 	componentWillMount(){
-		
 		var data = {
-			qty:8,
-			targetPage:1
+			qty:4,
+			targetPage:this.state.targetPage
 		}
 		axios.post('http://localhost:3003/api/goodslist/goodslist',data)
 		.then((res)=>{
+			console.log("res:",res)
 			this.setState({
 				list:res.data.data
 			})
-//			console.log("set data:",this.state.list)
+			console.log("list data:",this.state.list)
 		})
 		.catch((err)=>{
 			console.log(err)
@@ -115,7 +118,8 @@ class StoreMain extends Component{
 	//点击menu菜单，跳转到不同的页面
 	handlerGotoTarget(target){
 		let{history} = this.props;
-		history.push({
+		history.
+		push({
 			pathname:this.props.location.pathname+target.path,
 			state:target
 		})
@@ -130,26 +134,73 @@ class StoreMain extends Component{
 	}
 	//加载更多事件
 	componentDidMount(){
-	    window.addEventListener('scroll', function(){this.watchScroll});
+		  const store = document.getElementsByClassName('store')[0];
+	    store.addEventListener('scroll', this.handlerScroll,true);
 	}
 	//
-	watchScroll() {
-       console.log('scroll2222');
+	handlerScroll() {
+       const store = document.getElementsByClassName('store')[0];
+       const scrollTop = store.scrollTop;
+       const offsetHeight = store.offsetHeight;
+       const scrollHeight= store.scrollHeight;
+       
+       //判断如果滚动条到底部了，就请求数据
+       if(scrollTop+offsetHeight==scrollHeight){
+       		this.setState({
+				
+			},()=>{targetPage:this.state.targetPage++})
+//     		console.log('loading++:',this.state.targetPage)
+			var moreData = {
+				qty:4,
+				targetPage:this.state.targetPage
+			}
+			console.log('loading++:',this.state.targetPage)
+       		axios.post('http://localhost:3003/api/goodslist/goodslist',moreData)
+			.then((res)=>{
+			console.log("loading666:",res.data.data)
+			let arr = res.data.data;
+			let list = this.state.list;
+			//不支持es6的写法
+//			let list = oldlist.push(...arr)
+			Array.prototype.push.apply(list, arr);
+			console.log("listlist",list)
+			this.setState({
+				list
+			})
+			if(arr.length==0){
+				alert('没有更多了')
+			}
+		})
+       }
    }
 	
-//	componentWillUpdate(){
-//		if(this.state.scroll.scrollTop > this.state.scroll.maxScroll){
-//	       alert("滚动到底了");
-//	       return false;
-// 		}
-//	}
+	//关键字搜索
+	handlerSure(){
+		const keyword = document.getElementById('keyword').value;
+		var data = {
+			keyword:keyword
+		}
+		document.getElementById('keyword').value='';
+		axios.post('http://localhost:3003/api/goodslist/search',data)
+		.then((res)=>{
+			console.log("res:",res.data.data.length)
+			this.setState({
+				list:res.data.data
+			})
+			if(res.data.data.length==0){
+				alert('没有找到更多了')
+			}
+		})
+		
+	}
+
 	
     render(){
-    	return <div className="store" id="store">
+    	return <div>
 	    	<div className="store_top">
 	    		<span><FontAwesomeIcon icon={this.state.icon[0].iconSearch}/></span>
-	    		<input type="text" placeholder="输入关键字搜索"/>
-	    		<b>取消</b>
+	    		<input type="text" placeholder="输入关键字搜索" id="keyword"/>
+	    		<b onClick={this.handlerSure}>确定</b>
 	    	</div>
 	    	<div className="store_menu">
 	    		    <Grid

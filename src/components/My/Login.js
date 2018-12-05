@@ -7,6 +7,11 @@ import '../../sass/login.scss';
 //引入axios
 import axios from 'axios';
 
+//隐藏tabbar菜单
+import {connect} from 'react-redux';
+import {tabbar} from '../../actions';
+
+
 //fontAwesome
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -88,10 +93,17 @@ class Login extends Component{
 		
 		}
 	
+	//隐藏tabbar菜单 
+	componentWillMount(){
+		this.props.changeTabbarStatus(false);
+	}
+    componentWillUnmount(){
+    	this.props.changeTabbarStatus(true);
+    }
+	
 	render(){
 		console.log("login data:",this.state.data[0].logo)
-		return<div className="container">
-			<div className="login">
+		return<div className="login">
 				<div className="login_top">
 					<p>
 						<a onClick={this.handlerToHome}><FontAwesomeIcon icon={this.state.data[1].iconLeft}/></a>
@@ -118,9 +130,19 @@ class Login extends Component{
 					</div>
 				</div>
 			</div>
-		</div>
 	}
 	
 }
+let mapStateToProps = state=>({});
+let mapDispatchToProps=dispatch=>{
+	return{
+		changeTabbarStatus(status){
+			dispatch(tabbar(status));
+		}
+	}
+}
+
+
+Login = connect(mapStateToProps,mapDispatchToProps)(Login);
 
 export {Login};

@@ -1,6 +1,9 @@
 import React,{Component} from 'react';
 import {Route,NavLink,Switch,Redirect,withRouter} from 'react-router-dom';
 
+import {connect} from 'react-redux';
+
+
 //antd-mobile
 import { TabBar } from 'antd-mobile';
 //antd-mobile样式 
@@ -120,7 +123,10 @@ class App extends Component{
 					<Redirect from="/" to="/home" exact/>
 					<Redirect to="/404" />
 				</Switch>
-			<TabBar noRenderContent={true}>
+			<TabBar 
+			noRenderContent={true}
+			hidden = {!this.props.tabbarStatus}
+			>
 				{
 					this.state.tabs.map((tab,idx)=>{
 						return <TabBar.Item
@@ -139,6 +145,15 @@ class App extends Component{
 	    )  
 	}
 }
+
+let mapStateToProps = state=>{
+	console.log("app state:",state)
+	return {
+		tabbarStatus:state.commonReducer.tabbarStatus
+	}
+}
+
+App = connect(mapStateToProps)(App);
 
 //编程式导航
 App = withRouter(App);

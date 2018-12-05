@@ -2,6 +2,10 @@ import React,{Component} from 'react';
  
 import {Route,Switch} from 'react-router-dom';
 
+import {connect} from 'react-redux';
+
+import {tabbar} from '../../actions';
+
 import '../../sass/storeDetails.scss';
 
 //axios
@@ -39,6 +43,13 @@ class Details extends Component{
 				detailsMore:res.data.data.detailParts
 			})
 		})
+		
+		//隐藏tab菜单
+		console.log('details:',this.props)
+		this.props.changeTabbarStatus(false);
+	}
+	componentWillUnmount(){
+		this.props.changeTabbarStatus(true);
 	}
 	
 	
@@ -81,5 +92,17 @@ class Details extends Component{
 	}
 	
 }
+
+let mapStateToProps=state=>({});
+let mapDispatchToProps = dispatch=>{
+    return {
+        // 把changeTabbarStatus方法映射到props
+        changeTabbarStatus(status){
+            dispatch(tabbar(status));
+        }
+    }
+}
+
+Details = connect(mapStateToProps,mapDispatchToProps)(Details);
 
 export {Details};

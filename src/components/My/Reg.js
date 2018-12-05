@@ -6,6 +6,11 @@ import '../../sass/login.scss';
 //引入axios
 import axios from 'axios';
 
+//引入redux
+import {connect} from 'react-redux';
+import {tabbar} from '../../actions';
+
+
 //fontAwesome
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -90,7 +95,12 @@ class Reg extends Component{
 		
 		}
 //	}
-
+	componentWillMount(){
+		this.props.changeTabbarStaus(false);
+	}
+	componentWillUnmount(){
+		this.props.changeTabbarStaus(true);
+	}
 	
 	render(){
 		return<div className="container">
@@ -125,5 +135,20 @@ class Reg extends Component{
 	}
 	
 }
+
+
+
+//隐藏tabbar底部菜单
+let mapStatusToProps = state=>({});
+let mapDispatchToProps = dispatch=>{
+	return{
+		changeTabbarStaus(status){
+			dispatch(tabbar(status));
+		}
+	}
+}
+
+
+Reg = connect(mapStatusToProps,mapDispatchToProps)(Reg);
 
 export {Reg};

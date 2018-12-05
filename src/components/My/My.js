@@ -17,13 +17,11 @@ class My extends Component{
 	render(){
 		let {match} = this.props;
 		console.log("my path:",this.props)
-		return<div>
-			<Switch>
+		return<Switch>
 				<Route exact path={match.url + "/reg"} component={Reg}/>
 				<Route exact path={match.url } component={Login}/>
 				<Route exact path={match.url + "/info"} component={Info}/>
 			</Switch>
-		</div>
 	}
 	
 }
