@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Doctor(){
-    return <div>
+    return <div style={{flex:1}}>
         	名医
         </div>
 }

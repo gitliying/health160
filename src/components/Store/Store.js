@@ -7,6 +7,7 @@ import {Route,Switch,withRouter} from 'react-router-dom';
 import {StoreMain} from './StoreMain';
 import {Examination} from './Examination';
 import {Details} from './Details';
+import {Cart} from './Cart';
 
 //引入样式
 import '../../sass/store.scss';
@@ -39,6 +40,7 @@ class Store extends Component{
 			       <Route path={'/store'} component={StoreMain} exact/>
 			       <Route path={match.url + "/examination"} component={Examination} exact/>
 			       <Route path={match.url + "/details/:id"} component={Details} exact/>
+			       <Route path={match.url + "/cart/:id"} component={Cart} exact/>
 				</Switch>
     	</div>
     }

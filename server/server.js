@@ -8,6 +8,7 @@ const app = express();
 //引入路由
 const user = require('./router/user.js');
 const goodslist = require('./router/goodslist.js');
+const cartslist = require('./router/cartslist.js');
 
 
 //解决跨域
@@ -30,6 +31,7 @@ app.use(express.static(path.join(__dirname,'./public')))
 
 app.use('/api/user',user); //路由
 app.use('/api/goodslist',goodslist); //路由
+app.use('/api/cartslist',cartslist); //路由
 
 
 app.listen(3003,()=>{

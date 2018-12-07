@@ -1,0 +1,102 @@
+//引入公共样式
+@import './common/common';
+
+.container{
+     .store{background: #fff}
+    .cart{ 
+        height: h(180);
+        box-sizing: border-box;
+        padding: padding(20,10,20,0);
+        .cartTop{
+            span{
+                font-size: fs(16);
+                color: #4a4a4a;
+                margin-right: margin-right(10);
+            }
+        }
+        .content{
+            display: flex;
+            margin-top: margin-top(10);
+            border-bottom: 1px solid #ddd;
+          .contentLeft{
+              flex:1;
+              img{
+                width: w(90);
+                height: h(90);
+            }
+          } 
+          .contentRight{
+              margin-left: margin-left(5);
+               flex: 3;
+                width: w(240);
+                p{
+                    
+                    margin: 0;
+                    margin-top: margin-top(5);
+                }
+                p:nth-child(1){
+                    height: h(20);
+                    font-size: fs(18);
+                    color: #4a4a4a;
+                    text-overflow: ellipsis;
+                    white-space: nowrap; 
+                    overflow: hidden;
+                }
+                p:nth-child(2){
+                    font-size: fs(14);
+                    color: #4a4a4a;
+                }
+                p:nth-child(3){
+                    font-size: fs(14);
+                    color: #999;
+                    display: flex;
+                    justify-content: space-between;
+                }
+          }  
+        }
+        .contentBottom{
+            width: w(375);
+            height: h(40);
+            font-size: fs(16);
+            line-height: lh(40);
+            margin-left: margin-left(200);
+        }
+        .massage{
+            background: #fff;
+            div{
+                height: h(40);
+                line-height: lh(40);
+                display: flex;
+                justify-content: space-between;
+                border-bottom: 1px solid #ddd;
+                span{
+                    color: #4c4c4c;
+                }
+            }
+            .sum{
+                p{
+                    margin: 0;
+                    input{
+                        width: w(50);
+                        height: h(20);
+                        text-align: center;
+                    }
+                    button{
+                        outline:none;
+                        width: w(30);
+                        height: h(25);
+                        text-align: center;
+                        background: #fff;
+                    }
+                }
+                
+            }
+        }
+     }
+}
+
+
+
+
+
+

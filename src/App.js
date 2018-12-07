@@ -47,8 +47,6 @@ library.add(
 )
 
 
-
-
 class App extends Component{
 	constructor(){
 		super();
@@ -82,16 +80,25 @@ class App extends Component{
 			],
 			currentTab:0
 		}
+//		this.handlerClick = this.handlerClick.bind(this);
 	}
 	
 	handlerClick(idx,path){
 		this.setState({
 			currentTab:idx
-		})
-		console.log("this.setState:",this.state.currentTab);
-		
-		//编程式导航 withRouter
-		this.props.history.push(path)
+		},()=>{
+			let checkLogin = sessionStorage.getItem('userHealth');
+//				console.log('checkLogin:',checkLogin)
+				console.log("this.state.currentTab",this.state.currentTab)
+				if(checkLogin &&　this.state.currentTab==4　){
+					this.props.history.push('/my/info')
+				}else{
+				
+				this.props.history.push(path)
+				}
+			})
+//		console.log("handlerClick:",this.state.currentTab);
+	
 	}
 	
 	componentWillMount(){
@@ -106,10 +113,11 @@ class App extends Component{
 		this.setState({
 			currentTab
 		});
+		console.log('will:',currentTab)
 		
 	}
-	
-	
+
+
 	render(){
 		return(
 		<div className="container">
@@ -147,7 +155,6 @@ class App extends Component{
 }
 
 let mapStateToProps = state=>{
-	console.log("app state:",state)
 	return {
 		tabbarStatus:state.commonReducer.tabbarStatus
 	}

@@ -79,9 +79,55 @@
                   width: w(375);
               }
            }
+           
        }
    }
 
+}
+
+.container{
+    position: relative;
+    .detailsOrder{
+        z-index: 999;        
+        box-sizing: border-box;
+               width: w(375);
+               height: h(51);
+               background: #fff;
+               position:fixed;
+               left: 0;
+               bottom: 0;
+              .left{
+                  box-sizing: border-box;
+                  padding-top: padding-top(8);
+                  padding-left: padding-left(20);
+                  padding-right: padding-right(20);
+                  float: left;
+                  display: flex;
+                  justify-content: space-between;
+                  width: w(215);
+                   div{
+                       float: left;
+                       text-align: center;
+                       color: #666;
+                       span{
+                           font-size: fs(20);
+                       }
+                       p{
+                           margin-top: 0;
+                            font-size: fs(14); 
+                       }
+                   }
+              }
+              .right{
+                  float: right;
+                  width: w(160);
+                  background: #FFB937;
+                  font-size: fs(18);
+                  line-height: lh(51);
+                  text-align: center;
+                  color: #fff;
+              }
+           }
 }
 
 

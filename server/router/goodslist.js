@@ -13,11 +13,11 @@ Router.post('/goodslist',(req,res)=>{
 	let total = 0;
 	let qty = Number(req.body.qty);
 	let targetPage = Number(req.body.targetPage);
-	console.log(qty,targetPage)
+//	console.log(qty,targetPage)
     goodslistModel.find({}).limit(qty).skip((targetPage-1)*qty)
 	.then((data)=>{
 		//数据结构改变，前端接收注意
-		console.log("666",data)
+//		console.log("666",data)
 //		total = data.length;
 //		let array={total:total,goodslist:data};
 //		console.log("array:",array)
@@ -33,10 +33,10 @@ Router.post('/goodslist',(req,res)=>{
 //详情页
 Router.post('/details',(req,res)=>{
 	let id = Number(req.body.id);
-	console.log(id);
+//	console.log(id);
     goodslistModel.find({id:id})
 	.then((data)=>{
-		console.log("666",data)
+//		console.log("666",data)
 	 	res.send(utils.sendData(0,'请求ok',data));
 	})
 	.catch((err)=>{
@@ -46,6 +46,7 @@ Router.post('/details',(req,res)=>{
 	
 })
 
+//列表页关键字搜索
 Router.post('/search',(req,res)=>{
 	let {keyword} = req.body;
 	console.log(keyword);
@@ -60,6 +61,21 @@ Router.post('/search',(req,res)=>{
 	})
 	
 })
+
+//加入购物车
+//Router.post('/cart',(req,res)=>{
+//	let {id} = req.body;
+//  goodslistModel.insertMany(id)
+//	.then((data)=>{
+//		console.log("id:",data)
+//	 	res.send(utils.sendData(0,'请求ok',data));
+//	})
+//	.catch((err)=>{
+//		console.log(err)
+//		res.send(utils.sendData(-1,'请求错误',null));
+//	})
+//	
+//})
 
 
 module.exports=Router;

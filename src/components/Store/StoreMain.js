@@ -103,14 +103,11 @@ class StoreMain extends Component{
 		}
 		axios.post('http://localhost:3003/api/goodslist/goodslist',data)
 		.then((res)=>{
-			console.log("res:",res)
+//			console.log("res:",res)
 			this.setState({
 				list:res.data.data
 			})
-			console.log("list data:",this.state.list)
-		})
-		.catch((err)=>{
-			console.log(err)
+//			console.log("list data:",this.state.list)
 		})
 	}
 	
@@ -154,16 +151,15 @@ class StoreMain extends Component{
 				qty:4,
 				targetPage:this.state.targetPage
 			}
-			console.log('loading++:',this.state.targetPage)
+//			console.log('loading++:',this.state.targetPage)
        		axios.post('http://localhost:3003/api/goodslist/goodslist',moreData)
 			.then((res)=>{
-			console.log("loading666:",res.data.data)
+//			console.log("loading666:",res.data.data)
 			let arr = res.data.data;
 			let list = this.state.list;
 			//不支持es6的写法
 //			let list = oldlist.push(...arr)
 			Array.prototype.push.apply(list, arr);
-			console.log("listlist",list)
 			this.setState({
 				list
 			})

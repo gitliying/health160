@@ -56,7 +56,6 @@ class Login extends Component{
 	}
 	//去注册
 	handlerToReg(){
-		console.log(111)
 		console.log('login to reg',this.props);
 		let{history} = this.props;
 		history.push({
@@ -84,7 +83,7 @@ class Login extends Component{
 					}
 					alert(res.data.msg+'  3秒后跳转到首页界面')
 					setTimeout(go,3000)
-				
+				sessionStorage.setItem('userHealth',username); // 存入一个值
 			}else if(res.data.err==-1){
 				alert(res.data.msg)
 			}

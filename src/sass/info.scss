@@ -1,0 +1,62 @@
+//引入公共样式
+@import './common/common';
+
+.container{
+   .info{
+       flex: 1;
+       background: #fff;
+       .top{
+           height: h(110);
+          margin-top:margin-top(20) ;
+           display: flex;
+           justify-content: space-between;
+           align-items: center;
+           img{
+                margin-left: margin-left(20);
+               width: w(70);
+               height: h(70);
+               border-radius: 50%;
+           }
+           .middle{
+               p:nth-child(1){
+                   color: #767676;
+                   font-size: fs(16);
+                   margin-bottom: margin-bottom(5);
+               }
+               p:nth-child(2){
+                   color: #9B9B9B;
+                   font-size: fs(13);
+                   margin: 0;
+               }
+               p:nth-child(3){
+                   width: w(86);
+                   height: h(30);
+                   line-height: lh(30);
+                   background: #FCE233;
+                   text-align: center;
+                   border-radius: br(10);
+                   margin-top: margin-top(5);
+                   
+                   
+               }
+           }
+           .right{
+               width: 80px;
+                height: 30px;
+                line-height: 30px;
+                border-top-left-radius: 30px;
+                border-bottom-left-radius: 30px;
+                font-size: 14px;
+                text-align: center;
+                color: #fff;
+                background: #00d2c3;
+           }
+        }
+     } 
+}
+
+
+
+
+
+

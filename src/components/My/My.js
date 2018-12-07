@@ -14,9 +14,17 @@ class My extends Component{
 		super();
 		
 	}
+	//判断如果是登录状态，就跳转到info页面
+	componentWillMonunt(){
+//		console.log("login666",this.props)
+//		let checkLogin = sessionStorage.getItem('userHealth');
+//		console.log('checkLogin:',checkLogin)
+	//		if(checkLogin){
+	//			
+	//		}
+		}
 	render(){
 		let {match} = this.props;
-		console.log("my path:",this.props)
 		return<Switch>
 				<Route exact path={match.url + "/reg"} component={Reg}/>
 				<Route exact path={match.url } component={Login}/>
