@@ -101,7 +101,7 @@ class StoreMain extends Component{
 			qty:4,
 			targetPage:this.state.targetPage
 		}
-		axios.post('http://localhost:3003/api/goodslist/goodslist',data)
+		axios.post('/api/goodslist/goodslist',data)
 		.then((res)=>{
 //			console.log("res:",res)
 			this.setState({
@@ -152,7 +152,7 @@ class StoreMain extends Component{
 				targetPage:this.state.targetPage
 			}
 //			console.log('loading++:',this.state.targetPage)
-       		axios.post('http://localhost:3003/api/goodslist/goodslist',moreData)
+       		axios.post('/api/goodslist/goodslist',moreData)
 			.then((res)=>{
 //			console.log("loading666:",res.data.data)
 			let arr = res.data.data;
@@ -177,7 +177,7 @@ class StoreMain extends Component{
 			keyword:keyword
 		}
 		document.getElementById('keyword').value='';
-		axios.post('http://localhost:3003/api/goodslist/search',data)
+		axios.post('/api/goodslist/search',data)
 		.then((res)=>{
 			console.log("res:",res.data.data.length)
 			this.setState({

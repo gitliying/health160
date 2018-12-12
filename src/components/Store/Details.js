@@ -47,7 +47,7 @@ class Details extends Component{
 			id:match.params.id.slice(1)
 		}
 		//详情数据1
-		axios.post('http://localhost:3003/api/goodslist/details',data)
+		axios.post('/api/goodslist/details',data)
 		.then((res)=>{
 			this.setState({
 				details:res.data.data[0]
@@ -99,7 +99,7 @@ class Details extends Component{
 				price:price
 			}
 			//把相应的商品信息加入购物车
-			axios.post('http://localhost:3003/api/cartslist/cart',data)
+			axios.post('/api/cartslist/cart',data)
 			.then((res)=>{
 				console.log("cart res:",res)
 //				alert(res.data.msg)

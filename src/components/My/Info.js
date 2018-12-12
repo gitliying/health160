@@ -15,6 +15,14 @@ class Info extends Component{
 	componentWillMount(){
 
 	}
+	//退出
+	handlerQuit(){
+		sessionStorage.removeItem('userHealth');
+		let{history} = this.props;
+		history.push({
+            pathname:'/my'
+        });
+	}
 	render(){
 		let {info}= this.state;
 		console.log('info photo',info.photo)
@@ -27,6 +35,9 @@ class Info extends Component{
 				 	<p>加入会员</p>
 				 </div>
 				 <div className="right">健康打卡</div>
+			 </div>
+			 <div className="quit" onClick={this.handlerQuit.bind(this)}>
+			 	退出登录
 			 </div>
 		</div>
 	}

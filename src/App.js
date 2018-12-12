@@ -3,6 +3,7 @@ import {Route,NavLink,Switch,Redirect,withRouter} from 'react-router-dom';
 
 import {connect} from 'react-redux';
 
+import axios from 'axios';
 
 //antd-mobile
 import { TabBar } from 'antd-mobile';
@@ -46,6 +47,8 @@ library.add(
 	faEnvelope,
 )
 
+//配置baseUrl
+axios.defaults.baseURL = 'http://localhost:3003';
 
 class App extends Component{
 	constructor(){

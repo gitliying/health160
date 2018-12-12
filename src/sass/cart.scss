@@ -2,9 +2,10 @@
 @import './common/common';
 
 .container{
-     .store{background: #fff}
+    .store{background: #fff}
     .cart{ 
-        height: h(180);
+        background: #fff;
+        height: 100%;
         box-sizing: border-box;
         padding: padding(20,10,20,0);
         .cartTop{

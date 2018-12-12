@@ -158,13 +158,13 @@ class Main extends Component{
 	
 	componentWillMount(){
 		//名医
-		axios.get("/api/doctor/categorylist.html")
+		axios.get("/jkapi/doctor/categorylist.html")
 		.then((res)=>{
 //			console.log("tab doctor data:",res)
 		})
 		//找名医
 		//https://weixin.91160.com/
-		axios.get("/api/doctor/fastRecommendDoctor.html?cid=&size=10&p=1&lat=0&lng=0")
+		axios.get("/jkapi/doctor/fastRecommendDoctor.html?cid=&size=10&p=1&lat=0&lng=0")
 		.then((res)=>{
 //			console.log("find doctor data:",res)
 		})

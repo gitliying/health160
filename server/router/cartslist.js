@@ -66,5 +66,24 @@ Router.post('/cartfind',(req,res)=>{
 	
 })
 
+//更新
+Router.post('/cartupdate',(req,res)=>{
+	let {id,total} = req.body;
+	cartslistModel.updateMany({id},{ $set:{total:total} })
+	
+	.then((data)=>{
+//		console.log('update:',data)
+		cartslistModel.find({id:id})
+	 	.then((data2)=>{
+	 		console.log('update:',data2)
+	 		res.send(utils.sendData(0,'更新成功',data2));
+	 	})
+	})
+	.catch((err)=>{
+		console.log(err)
+		res.send(utils.sendData(-1,'更新失败',null));
+	})
+})
+
 
 module.exports=Router;

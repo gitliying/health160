@@ -13,26 +13,22 @@ const host = process.env.HOST || '0.0.0.0';
 
 //代理服务器
 
-let myproxy = {
-	"/api":{
-  		"target":"https://weixin.91160.com",
-  		"changeOrigin":true,
-  		"pathRewrite":{"^/api":"/"}
-		},
-	"/city":{
-  		"target":"http://m.soyoung.com",
-  		"changeOrigin":true,
-  		"pathRewrite":{"^/city":"/"}
-	},
-	//挂号接口
-	"/registration":{
-  		"target":"https://wap.91160.com",
-  		"changeOrigin":true,
-  		"pathRewrite":{"^/registration":"/"}
-	}
-}
+//let myproxy = {
+//	"/api":{
+//		"target":"https://weixin.91160.com",
+//		"changeOrigin":true,
+//		"pathRewrite":{"^/api":"/"}
+//		},
+//	
+//	//挂号接口
+//	"/registration":{
+//		"target":"https://wap.91160.com",
+//		"changeOrigin":true,
+//		"pathRewrite":{"^/registration":"/"}
+//	}
+//}
 
-module.exports = function(proxy=myproxy, allowedHost) {
+module.exports = function(proxy, allowedHost) {
   return {
     // WebpackDevServer 2.4.3 introduced a security fix that prevents remote
     // websites from potentially accessing local content through DNS rebinding:

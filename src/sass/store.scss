@@ -2,9 +2,11 @@
 @import './common/common';
 
 .container .store{
-    background-color: #ffd452;
+    width: w(375);
+    background: #ffd452 !important;
     flex:1;
     overflow-y: auto;
+    overflow-x: hidden;
     .store_top{
         padding-top: padding-top(20);
         padding-left: padding-left(10);
